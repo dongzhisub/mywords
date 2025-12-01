@@ -1,0 +1,231 @@
+.lesson-detail-page {
+    min-height: 100vh;
+    padding-bottom: var(--spacing-xl);
+}
+
+.lesson-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.lesson-header h1 {
+    margin: var(--spacing-lg) 0;
+}
+
+.lesson-progress-bar {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: var(--border-color);
+    z-index: 0;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    transition: all var(--transition-normal);
+}
+
+.progress-step.active .step-number {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-glow);
+}
+
+.step-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.progress-step.active .step-label {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* 章节样式 */
+.section {
+    margin-top: var(--spacing-xl);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.time-badge {
+    background: var(--bg-card);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* 音标网格 */
+.phonetics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 发音规律 */
+.rules-section {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.rules-intro {
+    background: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    border-left: 4px solid var(--primary-color);
+}
+
+.rules-intro p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.125rem;
+}
+
+.letter-rules-grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.rule-card {
+    display: flex;
+    gap: var(--spacing-lg);
+    background: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.rule-card:hover {
+    transform: translateX(4px);
+    background: var(--bg-hover);
+}
+
+.rule-letter {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.rule-content {
+    flex: 1;
+}
+
+.rule-text {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.rule-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.example-word {
+    background: var(--bg-hover);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-family: 'Courier New', monospace;
+}
+
+/* 导航按钮 */
+.next-btn {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1.125rem;
+    margin-top: var(--spacing-lg);
+}
+
+.section-nav {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.section-nav .btn {
+    flex: 1;
+    padding: var(--spacing-md);
+    font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+    .progress-steps {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+
+    .progress-steps::before {
+        display: none;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .phonetics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rule-card {
+        flex-direction: column;
+    }
+}

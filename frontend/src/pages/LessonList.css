@@ -1,0 +1,137 @@
+.lesson-list-page {
+    animation: fadeIn 0.5s ease;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin-top: var(--spacing-sm);
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.lesson-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 2px solid var(--border-color);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform var(--transition-normal);
+}
+
+.lesson-card:hover::before {
+    transform: scaleX(1);
+}
+
+.lesson-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-glow);
+}
+
+.lesson-number {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.lesson-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.4;
+}
+
+.lesson-meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.meta-item .icon {
+    font-size: 1.125rem;
+}
+
+.lesson-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.start-btn {
+    color: var(--primary-light);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.lesson-card:hover .start-btn {
+    transform: translateX(4px);
+    color: var(--primary-color);
+}
+
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-muted);
+    font-size: 1.125rem;
+}
+
+.error-message {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 2px solid #ef4444;
+}
+
+.error-message p {
+    color: #fca5a5;
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .lessons-grid {
+        grid-template-columns: 1fr;
+    }
+}
